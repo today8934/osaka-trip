@@ -1,0 +1,37 @@
+# 나의 오사카
+
+2026년 9월 14–17일 오사카 3박 4일 여행 일정.
+
+공개 페이지: https://today8934.github.io/osaka-trip/
+
+날짜별 일정과 번호 지도, 4일 전체 동선, 장소 상세 및 Google Maps 길찾기를 제공합니다. 모바일에서도 날짜 탭과 지도를 보며 일정을 확인할 수 있습니다.
+
+## 일정 편집과 배포
+
+Node.js 22.13 이상을 사용하세요.
+
+```sh
+npm ci
+npm run dev
+npm run build
+node scripts/prepare-pages.mjs
+```
+
+`app/trip.ts`에서 일정, 장소, 주소, 참고 출처를 수정합니다. `docs/`의 정적 파일을 main 브랜치에 올리면 GitHub Pages가 배포합니다. 빌드의 assetPrefix는 `/osaka-trip`이며 정적 파일 준비 과정에서 해당 경로를 GitHub의 저장소 경로에 맞춥니다.
+
+## 여행 정보
+
+- 출국 9월 14일 09:40 / 귀국 9월 17일 16:00.
+- 간사이공항과 난바 주변 숙소를 가정했습니다. 실제 일본 도착 시각, 숙소와 항공사 터미널은 미확정입니다.
+- 점심은 마키노, 상등카레 후쿠시마 본점, 무기토멘스케, 돈테이 순서입니다.
+- 시간은 이동과 대기를 고려한 계획이며 열차 시간표나 예약이 아닙니다.
+- 지도 점선은 장소 간 방문 순서를 나타내며 실제 도보·열차 경로는 아닙니다. 지도 좌표는 위치 참고용이며 입구는 Google Maps에서 확인하세요.
+- 운영 정보는 2026-09-06 확인 기준입니다. 각 장소의 안내 링크에서 변경 여부를 확인할 수 있습니다.
+
+## 지도와 사진
+
+지도: Leaflet 1.9.4 / OpenStreetMap contributors. 외부 지도 연결이 안 되면 장소 카드의 Google Maps 링크를 사용하세요.
+
+사진: Kristoffer Trolle, [Dōtonbori at night, Osaka](https://commons.wikimedia.org/wiki/File:D%C5%8Dtonbori_at_night,_Osaka_(19551420339).jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). 레이아웃에 맞춰 크롭했습니다.
+
+선택 기능으로 WebMCP의 일정 조회와 날짜 전환 도구를 포함합니다. 미지원 브라우저에서는 일반 화면 기능만 동작합니다. 실제 WebMCP 클라이언트 통합 검증은 수행하지 않았습니다.
